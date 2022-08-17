@@ -5,7 +5,7 @@ import boto3
 def create_ec2_instance(): # Information can be passed into functions as arguments within the parentheses
     try: # Good to use when testing blocks of code / when the code may or may not fail
         print ("Creating new EC2 Instance")    
-        resource_ec2 = boto3.client("ec2") # Creating a resource variable
+        resource_ec2 = boto3.client("ec2") # Creating a resource variable -> Connecting to a low-level client interface by having boto3 make an AWS API call for me
         resource_ec2.run_instances( #Run an instance using aws configure sso boto3 client using the parameters below
             ImageId="ami-090fa75af13c156b4",
             MinCount=1,
