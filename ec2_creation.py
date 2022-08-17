@@ -25,5 +25,19 @@ def describe_ec2_instance ():
     except Exception as e:
         print(e)
 
+def create_security_group():
+    try:
+        sg_name = "boto3_jz_security_group"
+        print ("Creating new Security Group")
+        create_security_group = boto3.client("ec2")
+        create_security_group.create_security_group (
+            GroupName=sg_name,
+            Description="This security group was created by utilizing the Boto3 SDK",
+            VpcId="vpc-020d73a8d3283eee1"
+        )
+    except Exception as e:
+        print(e)
+
 create_ec2_instance() #Call the function
 describe_ec2_instance() #Call the function
+create_security_group() #Call the function
